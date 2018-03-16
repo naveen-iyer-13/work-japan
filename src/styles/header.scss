@@ -1,0 +1,30 @@
+
+.header {
+  height: 30px;
+  position: fixed;
+  top: 0;
+  text-align: center;
+  color: white;
+  left: 0;
+  right: 0;
+  display: -ms-flexbox;
+  // display: flex;
+  width: 100%;
+  padding: 10px;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  background-color: #064273;
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.34);
+  z-index: 990;
+  .header-icons {
+    float: right;
+    cursor: pointer;
+    margin: 0px 20px;
+  }
+}
