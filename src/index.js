@@ -21,7 +21,6 @@ const Root = () => (
   <Provider store={store} persistor={persistor}>
     <Router>
       <div>
-        <Route path="/" component={Header} />
         <Route exact path="/" render={renderFn(App)} />
         <Route path="/login" render={renderFn(Login)} />
         <Route path="/signup" render={renderFn(SignUp)} />

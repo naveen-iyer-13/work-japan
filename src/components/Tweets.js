@@ -7,6 +7,7 @@ import Card from 'antd/lib/card'
 import {connect} from 'react-redux'
 import {addNewTweet} from '../redux/actions'
 import moment from 'moment'
+import Header from './Header'
 import 'antd/dist/antd.css';
 import '../styles/addProductsModal.css'
 
@@ -110,23 +111,26 @@ class Tweets extends Component {
 
 
     return (
-      <div className="login" style={{ margin: 100}}>
-        <div>
-          <Input.TextArea placeholder="Tweet away" value={this.state.newTweet} style={{width: 200, resize: "none"}} onChange={(e) => this.setState({newTweet: e.target.value})} className="input-box"/>
-          <Button style={{width: 100, fontSize: 10, marginLeft: 20}} onClick={() => this.addTweet()}>POST</Button>
+      <div>
+        <Header  history={this.props.history}/>
+        <div className="login" style={{ margin: 100}}>
+          <div>
+            <Input.TextArea placeholder="Tweet away" value={this.state.newTweet} style={{width: 200, resize: "none"}} onChange={(e) => this.setState({newTweet: e.target.value})} className="input-box"/>
+            <Button style={{width: 100, fontSize: 10, marginLeft: 20}} onClick={() => this.addTweet()}>POST</Button>
+          </div>
+          <div style={{marginBottom: 20, marginTop: 20}}>
+            Tweets List
+          </div>
+          <div>
+            {tweetsList}
+          </div>
+          <Modal visible={this.state.editModal} onCancel={() => this.setState({editModal: false})} title="Edit Tweet" footer={editFooter}>
+            <Input.TextArea placeholder="Tweet away" value={this.state.selectedTweet} style={{width: 200, resize: "none"}} onChange={(e) => this.setState({selectedTweet: e.target.value})} className="input-box"/>
+          </Modal>
+          <Modal visible={this.state.deleteModal} onCancel={() => this.setState({deleteModal: false})} title="Delete Tweet" footer={deleteFooter}>
+            Are you sure you want to delete this Tweet?
+          </Modal>
         </div>
-        <div style={{marginBottom: 20, marginTop: 20}}>
-          Tweets List
-        </div>
-        <div>
-          {tweetsList}
-        </div>
-        <Modal visible={this.state.editModal} onCancel={() => this.setState({editModal: false})} title="Edit Tweet" footer={editFooter}>
-          <Input.TextArea placeholder="Tweet away" value={this.state.selectedTweet} style={{width: 200, resize: "none"}} onChange={(e) => this.setState({selectedTweet: e.target.value})} className="input-box"/>
-        </Modal>
-        <Modal visible={this.state.deleteModal} onCancel={() => this.setState({deleteModal: false})} title="Delete Tweet" footer={deleteFooter}>
-          Are you sure you want to delete this Tweet?
-        </Modal>
       </div>
     );
   }

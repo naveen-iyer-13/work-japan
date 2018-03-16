@@ -3,6 +3,7 @@ import Card from 'antd/lib/card'
 import {connect} from 'react-redux'
 import {addNewTweet} from '../redux/actions'
 import moment from 'moment'
+import Header from './Header'
 import 'antd/dist/antd.css';
 import '../styles/addProductsModal.css'
 
@@ -46,11 +47,14 @@ class Tweets extends Component {
       })
     }
     return (
-      <div className="login" style={{ margin: 100}}>
-        <div>
-          Single Tweet
+      <div>
+        <Header  history={this.props.history}/>
+        <div className="login" style={{ margin: 100}}>
+          <div>
+            Single Tweet
+          </div>
+            {tweet}
         </div>
-          {tweet}
       </div>
     );
   }
