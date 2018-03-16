@@ -1,11 +1,11 @@
-# Invoice Frontend
+# Work Japan
 
 A basic POS with React/Redux
 
 ### Installing
 
 ```
-- git clone git@github.com:naveen-iyer-13/invoice-frontend.git
+- git clone git@github.com:naveen-iyer-13/work-japan.git
 ```
 ```
 - npm install
