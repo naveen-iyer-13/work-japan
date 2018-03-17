@@ -24,7 +24,7 @@ class Login extends Component {
         if (item.userName === this.state.userName && item.password === this.state.password) {
           loginSuccess = true
           localStorage.setItem("currentUserId", item.id)
-          this.props.history.push('/tweets')
+          this.props.history.push('/'+this.state.userName)
         }
       })
       this.setState({loginSuccess: loginSuccess, loginClicked: true})

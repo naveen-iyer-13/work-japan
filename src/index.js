@@ -24,7 +24,7 @@ const Root = () => (
         <Route exact path="/" render={renderFn(App)} />
         <Route path="/login" render={renderFn(Login)} />
         <Route path="/signup" render={renderFn(SignUp)} />
-        <Route path="/tweets" render={renderFn(Tweets)} />
+        <Route path="/:userName" exact render={renderFn(Tweets)} />
         <Route path="/tweet/:id" render={renderFn(SingleTweets)} />
       </div>
     </Router>
