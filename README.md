@@ -1,6 +1,6 @@
 # Work Japan
 
-A basic POS with React/Redux
+A basic App with React/Redux
 
 ### Installing
 
