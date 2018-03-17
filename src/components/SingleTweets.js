@@ -5,7 +5,6 @@ import {addNewTweet} from '../redux/actions'
 import moment from 'moment'
 import Header from './Header'
 import 'antd/dist/antd.css';
-import '../styles/addProductsModal.css'
 
 class Tweets extends Component {
   constructor(props){

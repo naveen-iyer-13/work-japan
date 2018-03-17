@@ -9,7 +9,7 @@ import {addNewTweet} from '../redux/actions'
 import moment from 'moment'
 import Header from './Header'
 import 'antd/dist/antd.css';
-import '../styles/addProductsModal.css'
+import '../styles/tweets.css'
 
 class Tweets extends Component {
   constructor(props){
@@ -89,7 +89,7 @@ class Tweets extends Component {
           deleteIcon = <Icon type="delete" style={{marginLeft: 10}} onClick={() => this.setState({deleteModal: true, selectedTweet: item.tweet, selectedTweetId: item.id})}/>
         }
         return(
-          <Card style={{ width: 300, cursor: 'pointer', marginBottom: 20 }} key={index}>
+          <Card className="card" key={index}>
             <div style={{display: 'flex', float: 'right'}}>
               {editIcon}
               {deleteIcon}
@@ -119,12 +119,12 @@ class Tweets extends Component {
     return (
       <div>
         <Header  history={this.props.history}/>
-        <div className="login" style={{ margin: 100}}>
-          <div>
-            <Input.TextArea placeholder="Tweet away" value={this.state.newTweet} style={{width: 200, resize: "none"}} onChange={(e) => this.setState({newTweet: e.target.value})} className="input-box"/>
-            <Button style={{width: 100, fontSize: 10, marginLeft: 20}} onClick={() => this.addTweet()}>POST</Button>
+        <div className="tweets" >
+          <div className="post-tweets">
+            <Input.TextArea placeholder="Tweet away" value={this.state.newTweet} style={{resize: "none", height: 80}} className="tweets-textarea" onChange={(e) => this.setState({newTweet: e.target.value})} className="input-box"/>
+            <Button className="post-button" onClick={() => this.addTweet()}>POST</Button>
           </div>
-          <div style={{marginBottom: 20, marginTop: 20}}>
+          <div className="tweets-heading">
             Tweets List
           </div>
           <div>
