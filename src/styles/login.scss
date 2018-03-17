@@ -1,0 +1,21 @@
+.login {
+  margin: 100px auto;
+  width: 300px;
+  .login-header {
+    width: 300px;
+    text-align: center;
+  }
+  .input-container {
+    padding-bottom: 30px;
+    width: 300px;
+    .input-header {
+      margin-bottom: 10px
+    }
+  }
+  .error-message {
+    font-size: 10px;
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+  }
+}

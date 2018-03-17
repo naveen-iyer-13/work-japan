@@ -5,7 +5,7 @@ import Header from './Header'
 import {connect} from 'react-redux'
 import {setUserData} from '../redux/actions'
 import 'antd/dist/antd.css';
-import '../styles/addProductsModal.css'
+import '../styles/signup.css'
 
 class Login extends Component {
   constructor(props){
@@ -56,22 +56,22 @@ class Login extends Component {
     return (
       <div>
         <Header  history={this.props.history}/>
-        <div className="login" style={{ margin: "100px auto", width: 300}}>
-          <h2 style={{width: 300, textAlign: 'center'}}>SIGN UP</h2>
-          <div style={{paddingBottom: 30, width: 300}}>
-            <div style={{marginBottom: 10}}>First Name</div>
+        <div className="signup">
+          <h2 className="signUp-header">SIGN UP</h2>
+          <div className="input-container">
+            <div className="input-header">First Name</div>
             <Input placeholder="User name" value={this.state.firstName} onChange={(e) => this.setState({firstName: e.target.value})} className="input-box"/>
           </div>
-          <div style={{paddingBottom: 30, width: 300}}>
-            <div style={{marginBottom: 10}}>Username</div>
+          <div className="input-container">
+            <div className="input-header">Username</div>
             <div style={{display: 'flex'}}>
               <Input placeholder="User name" value={this.state.userName} onChange={(e) => this.setState({userName: e.target.value})} className="input-box"/>
               <Button style={{width: 100, fontSize: 10, marginLeft: 20}} onClick={() => this.checkForUserName()}>Check if unique</Button>
             </div>
-            {this.state.checkUserNameButtonClicked && !this.state.checkUserName && <div style={{fontSize: 10, color: 'red'}}>This userName is already taken</div>}
+            {this.state.checkUserNameButtonClicked && !this.state.checkUserName && <div className="error-message">This userName is already taken</div>}
           </div>
-          <div style={{paddingBottom: 30, width: 300}}>
-            <div style={{marginBottom: 10}}>Password</div>
+          <div className="input-container">
+            <div className="input-header">Password</div>
             <Input placeholder="Password" value={this.state.password} onChange={(e) => this.setState({password: e.target.value})} className="input-box"/>
           </div>
           <div style={{display: 'flex', flexDirection: 'column'}}>

@@ -4,7 +4,7 @@ import Button from 'antd/lib/button'
 import {connect} from 'react-redux'
 import Header from './Header'
 import 'antd/dist/antd.css';
-import '../styles/addProductsModal.css'
+import '../styles/login.css'
 
 class Login extends Component {
   constructor(props){
@@ -24,7 +24,7 @@ class Login extends Component {
         if (item.userName === this.state.userName && item.password === this.state.password) {
           loginSuccess = true
           localStorage.setItem("currentUserId", item.id)
-          this.props.history.push('/'+this.state.userName)
+          this.props.history.push('/tweets')
         }
       })
       this.setState({loginSuccess: loginSuccess, loginClicked: true})
@@ -36,21 +36,21 @@ class Login extends Component {
     return (
       <div>
         <Header history={this.props.history}/>
-        <div className="login" style={{ margin: "100px auto", width: 300}}>
-          <h2 style={{width: 300, textAlign: 'center'}}>LOGIN</h2>
-          <div style={{paddingBottom: 30, width: 300}}>
-            <div style={{marginBottom: 10}}>Username</div>
+        <div className="login">
+          <h2 className="login-header">LOGIN</h2>
+          <div className="input-container">
+            <div className="input-header">Username</div>
             <Input placeholder="User name" value={this.state.userName} onChange={(e) => this.setState({userName: e.target.value})} className="input-box"/>
           </div>
-          <div style={{paddingBottom: 30, width: 300}}>
-            <div style={{marginBottom: 10}}>Password</div>
+          <div className="input-container">
+            <div className="input-header">Password</div>
             <Input placeholder="Password" value={this.state.password} onChange={(e) => this.setState({password: e.target.value})} className="input-box"/>
           </div>
           <div style={{display: 'flex', flexDirection: 'column'}}>
             <Button style={{width: 300}} onClick={() => this.onLoginClicked()}>Submit</Button>
             <Button style={{width: 300, marginTop: 30}} onClick={() => this.props.history.push('/signup')}>Sign Up first</Button>
           </div>
-          {!this.state.loginSuccess && this.state.loginClicked && <span style={{fontSize: 10, color: 'red', textAlign: 'center', marginTop: 10}}> Invalid username or password </span>}
+          {!this.state.loginSuccess && this.state.loginClicked && <span className="error-message"> Invalid username or password </span>}
         </div>
       </div>
     );
