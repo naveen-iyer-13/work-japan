@@ -76,7 +76,13 @@ class Tweets extends Component {
     var tweetsList;
     if (this.props.tweetsList) {
       var userId = localStorage.getItem("currentUserId")
+      var userDetail
       tweetsList = this.props.tweetsList.map((item, index) => {
+        userDetail = this.props.userDetail.filter((user) => {
+          if (parseInt(user.id) === parseInt(item.ownerId)) {
+            return user
+          }
+        })
         var editIcon, deleteIcon
         if (parseInt(userId) === parseInt(item.ownerId)) {
           editIcon = <Icon type="edit" style={{marginLeft: 10}} onClick={() => this.setState({editModal: true, selectedTweet: item.tweet, selectedTweetId: item.id})}/>
@@ -90,7 +96,7 @@ class Tweets extends Component {
             </div>
             <div onClick={() => this.props.history.push('/tweet/'+item.id)}>
               <p>{item.tweet}</p>
-              <p>Tweet ID - {item.id}</p>
+              <p>Created by - {userDetail[0].firstName}</p>
               <p>Created at - {moment(item.time).format('DD-MM-YYYY, h:mm:ss a')}</p>
             </div>
           </Card>

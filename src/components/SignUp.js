@@ -56,7 +56,7 @@ class Login extends Component {
     return (
       <div>
         <Header  history={this.props.history}/>
-        <div className="login" style={{ margin: 100}}>
+        <div className="login" style={{ margin: "100px auto", width: 300}}>
           <h2 style={{width: 300, textAlign: 'center'}}>SIGN UP</h2>
           <div style={{paddingBottom: 30, width: 300}}>
             <div style={{marginBottom: 10}}>First Name</div>

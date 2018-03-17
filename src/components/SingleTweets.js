@@ -30,7 +30,7 @@ class Tweets extends Component {
         if (parseInt(item.id) === parseInt(this.props.match.params.id)) {
           var userDetail = this.props.userDetail.filter((user) => {
             var userId = localStorage.getItem("currentUserId")
-            if (parseInt(user.id) === parseInt(userId)) {
+            if (parseInt(user.id) === parseInt(item.ownerId)) {
               return user
             }
           })
